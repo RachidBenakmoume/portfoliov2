@@ -66,7 +66,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ─── Hero Section with Mesh Gradient ─── */
+/* ─── Hero Section with Particle Network ─── */
 .hero {
   position: relative;
   min-height: 100dvh;
@@ -77,14 +77,27 @@ body {
   text-align: center;
   padding: 60px 24px;
   overflow: hidden;
+  background: var(--bg);
 }
 
-.mesh-canvas {
+.hero-canvas {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   z-index: 0;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(to top, var(--bg), transparent);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero-content {
@@ -843,9 +856,12 @@ body {
 
 /* ─── Footer ─── */
 footer {
+  position: relative;
+  z-index: 2;
   border-top: 1px solid var(--border);
-  padding: 60px 24px 40px;
+  padding: 60px 24px calc(40px + env(safe-area-inset-bottom, 0px));
   text-align: center;
+  background: var(--bg);
 }
 
 .footer-content {
@@ -1412,6 +1428,10 @@ footer {
     gap: 32px;
   }
 
+  footer {
+    padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px));
+  }
+
   .footer-contact {
     flex-direction: column;
     gap: 12px;
@@ -1429,13 +1449,14 @@ footer {
 
   .contact-section-wrapper {
     height: auto;
-    min-height: 100vh;
+    min-height: auto;
   }
 
   .contact-sticky {
     position: relative;
     height: auto;
-    min-height: 100vh;
+    min-height: auto;
+    overflow: visible;
   }
 
   .curtain-left,
@@ -1446,6 +1467,16 @@ footer {
   .contact-section {
     position: relative;
     overflow-y: visible;
+    padding: 40px 16px;
+  }
+
+  .contact-section-inner {
+    max-height: none;
+    padding: 24px 16px;
+  }
+
+  .contact-container {
+    gap: 24px;
   }
 
   .navbar {

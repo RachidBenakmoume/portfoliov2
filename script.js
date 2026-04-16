@@ -247,76 +247,168 @@
     var btn = document.getElementById("themeToggle");
     if (btn) btn.textContent = theme === "dark" ? "\u2600\ufe0f" : "\ud83c\udf19";
 
-    meshBgColor = getComputedStyle(document.documentElement).getPropertyValue("--mesh-bg").trim();
+    // Update particle colors on theme change
+    updateParticleColors();
   }
 
-  // ─── Mesh Gradient Background ───
-  var meshBgColor = "#0b0f14";
+  // ─── Particle Constellation Background ───
+  var particleColors = { dot: "rgba(126,180,210,0.6)", line: "rgba(126,180,210,0.12)", glow: "rgba(126,180,210,0.08)" };
 
-  function initMesh(canvas, colors, speed) {
+  function updateParticleColors() {
+    if (currentTheme === "light") {
+      particleColors = { dot: "rgba(0,150,255,0.5)", line: "rgba(0,150,255,0.1)", glow: "rgba(0,150,255,0.06)" };
+    } else {
+      particleColors = { dot: "rgba(126,180,210,0.6)", line: "rgba(126,180,210,0.12)", glow: "rgba(126,180,210,0.08)" };
+    }
+  }
+
+  (function initParticles() {
+    var canvas = document.getElementById("heroCanvas");
+    if (!canvas) return;
     var ctx = canvas.getContext("2d");
-    var blobs = colors.map(function (c) {
-      return {
-        x: Math.random(),
-        y: Math.random(),
-        vx: (Math.random() - 0.5) * speed,
-        vy: (Math.random() - 0.5) * speed,
-        r: 0.3 + Math.random() * 0.2,
-        color: c,
-      };
-    });
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var particles = [];
+    var mouse = { x: -9999, y: -9999 };
+    var PARTICLE_COUNT = 100;
+    var CONNECT_DIST = 150;
+    var MOUSE_RADIUS = 180;
 
     function resize() {
-      canvas.width = canvas.offsetWidth * 2;
-      canvas.height = canvas.offsetHeight * 2;
+      canvas.width = canvas.offsetWidth * dpr;
+      canvas.height = canvas.offsetHeight * dpr;
+      ctx.scale(dpr, dpr);
     }
+
+    function createParticles() {
+      particles = [];
+      var w = canvas.offsetWidth;
+      var h = canvas.offsetHeight;
+      for (var i = 0; i < PARTICLE_COUNT; i++) {
+        particles.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          r: 1.2 + Math.random() * 1.8,
+          baseR: 1.2 + Math.random() * 1.8
+        });
+      }
+    }
+
     resize();
-    window.addEventListener("resize", resize);
+    createParticles();
+
+    window.addEventListener("resize", function () {
+      resize();
+      createParticles();
+    });
+
+    canvas.addEventListener("mousemove", function (e) {
+      var rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    });
+
+    canvas.addEventListener("mouseleave", function () {
+      mouse.x = -9999;
+      mouse.y = -9999;
+    });
 
     function draw() {
-      var w = canvas.width,
-        h = canvas.height;
-      ctx.fillStyle = meshBgColor;
-      ctx.fillRect(0, 0, w, h);
+      var w = canvas.offsetWidth;
+      var h = canvas.offsetHeight;
+      ctx.clearRect(0, 0, w, h);
 
-      blobs.forEach(function (b) {
-        b.x += b.vx / w;
-        b.y += b.vy / h;
-        if (b.x < -0.2 || b.x > 1.2) b.vx *= -1;
-        if (b.y < -0.2 || b.y > 1.2) b.vy *= -1;
+      // Update and draw particles
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
 
-        var grd = ctx.createRadialGradient(
-          b.x * w,
-          b.y * h,
-          0,
-          b.x * w,
-          b.y * h,
-          b.r * Math.max(w, h),
-        );
-        grd.addColorStop(0, b.color);
-        grd.addColorStop(1, "transparent");
+        // Mouse interaction - gentle attraction
+        var dmx = mouse.x - p.x;
+        var dmy = mouse.y - p.y;
+        var distMouse = Math.sqrt(dmx * dmx + dmy * dmy);
+        if (distMouse < MOUSE_RADIUS && distMouse > 0) {
+          var force = (1 - distMouse / MOUSE_RADIUS) * 0.02;
+          p.vx += dmx * force;
+          p.vy += dmy * force;
+          p.r = p.baseR + (1 - distMouse / MOUSE_RADIUS) * 2;
+        } else {
+          p.r += (p.baseR - p.r) * 0.05;
+        }
 
-        ctx.globalCompositeOperation = "lighter";
-        ctx.fillStyle = grd;
-        ctx.fillRect(0, 0, w, h);
-        ctx.globalCompositeOperation = "source-over";
-      });
+        // Damping
+        p.vx *= 0.98;
+        p.vy *= 0.98;
+
+        // Restore drift if too slow
+        var speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+        if (speed < 0.15) {
+          p.vx += (Math.random() - 0.5) * 0.1;
+          p.vy += (Math.random() - 0.5) * 0.1;
+        }
+
+        p.x += p.vx;
+        p.y += p.vy;
+
+        // Wrap around edges
+        if (p.x < -20) p.x = w + 20;
+        if (p.x > w + 20) p.x = -20;
+        if (p.y < -20) p.y = h + 20;
+        if (p.y > h + 20) p.y = -20;
+
+        // Draw dot with glow
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r + 4, 0, Math.PI * 2);
+        ctx.fillStyle = particleColors.glow;
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = particleColors.dot;
+        ctx.fill();
+      }
+
+      // Draw connections
+      ctx.lineWidth = 1;
+      for (var i = 0; i < particles.length; i++) {
+        for (var j = i + 1; j < particles.length; j++) {
+          var dx = particles[i].x - particles[j].x;
+          var dy = particles[i].y - particles[j].y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < CONNECT_DIST) {
+            var opacity = 1 - dist / CONNECT_DIST;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = particleColors.line.replace(/[\d.]+\)$/, (opacity * 0.15).toFixed(3) + ")");
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Draw mouse connections
+      if (mouse.x > -9000) {
+        for (var i = 0; i < particles.length; i++) {
+          var dx = mouse.x - particles[i].x;
+          var dy = mouse.y - particles[i].y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < MOUSE_RADIUS) {
+            var opacity = 1 - dist / MOUSE_RADIUS;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.strokeStyle = particleColors.line.replace(/[\d.]+\)$/, (opacity * 0.25).toFixed(3) + ")");
+            ctx.lineWidth = opacity * 1.5;
+            ctx.stroke();
+          }
+        }
+        ctx.lineWidth = 1;
+      }
 
       requestAnimationFrame(draw);
     }
     draw();
-  }
-
-  initMesh(
-    document.getElementById("meshHero"),
-    [
-      "rgba(126,180,210,.14)",
-      "rgba(90,154,191,.1)",
-      "rgba(148,163,184,.08)",
-      "rgba(176,196,216,.06)",
-    ],
-    0.3,
-  );
+  })();
 
   // ─── Typewriter Effect for Hero Title ───
   var typewriterEl = document.getElementById("typewriterText");
