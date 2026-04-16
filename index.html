@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="page_title">Yacine Benakmoume — Ingénieur Full Stack Senior & Tech Lead</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  </head>
+  <body>
+    <!-- Top-right controls -->
+    <div class="site-controls">
+      <button class="control-btn" id="langToggle" aria-label="Switch language">FR</button>
+      <button class="control-btn" id="themeToggle" aria-label="Toggle theme">☀️</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <canvas class="mesh-canvas" id="meshHero"></canvas>
+      <div class="hero-content">
+        <div class="hero-label" data-i18n="hero_label">Portfolio</div>
+        <h1>Yacine Benakmoume</h1>
+        <div class="hero-title" id="typewriterText"></div>
+        <div class="hero-availability" data-i18n="hero_availability">Disponible · Freelance Remote</div>
+        <p class="hero-description" data-i18n="hero_description">
+          Ingénieur logiciel full stack avec 6+ ans d'expérience sur des
+          systèmes critiques à fort enjeu — télécommunications nationales,
+          santé, finance industrielle. Expert Java/Spring Boot & Angular,
+          architecte microservices et solutions cloud-native, chercheur en
+          sécurité offensive récompensé (BugBounty.ch).
+        </p>
+        <div class="hero-cta">
+          <a href="mailto:yacine.benakmoume@example.com" data-i18n="hero_cta_contact">Me contacter</a>
+          <a
+            href="https://www.linkedin.com/in/yacine-benakmoume/"
+            target="_blank"
+            class="secondary"
+            >LinkedIn</a
+          >
+          <a
+            href="https://github.com/ElphenomenoCoding"
+            target="_blank"
+            class="secondary"
+            >GitHub</a
+          >
+        </div>
+      </div>
+      <div class="scroll-hint" data-i18n="scroll_hint">Défiler pour découvrir ↓</div>
+    </section>
+
+    <!-- Projects Section (Accordion) -->
+    <section class="projects-section" id="projects">
+      <div class="section-header">
+        <div class="section-label" data-i18n="projects_label">Réalisations</div>
+        <h2 class="section-title" data-i18n="projects_title">Projets marquants</h2>
+      </div>
+
+      <div class="accordion">
+        <div class="accordion-panel active">
+          <div
+            class="panel-bg"
+            style="
+              background:
+                linear-gradient(
+                  135deg,
+                  rgba(74, 255, 139, 0.3) 0%,
+                  rgba(74, 255, 139, 0.1) 100%
+                ),
+                url(&quot;https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop&quot;)
+                  center/cover;
+            "
+          ></div>
+          <div class="panel-overlay"></div>
+          <div class="panel-title" data-i18n="project1_title">Tarjem DZ</div>
+          <div class="panel-content">
+            <div class="panel-num" data-i18n="project1_num">Projet 01</div>
+            <h3 class="panel-h3" data-i18n="project1_title">Tarjem DZ</h3>
+            <a href="https://tarjemdz.com" target="_blank" class="panel-link"
+              >tarjemdz.com →</a
+            >
+            <p class="panel-desc" data-i18n="project1_desc">
+              Plateforme SaaS de mise en relation entre clients et traducteurs
+              assermentés. Workflow complet de gestion de commandes avec
+              génération automatique de certificats PDF.
+            </p>
+            <div class="panel-tags">
+              <span class="panel-tag">Spring Boot</span>
+              <span class="panel-tag">Angular</span>
+              <span class="panel-tag">Cloudflare</span>
+              <span class="panel-tag">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-panel">
+          <div
+            class="panel-bg"
+            style="
+              background:
+                linear-gradient(
+                  135deg,
+                  rgba(200, 169, 126, 0.3) 0%,
+                  rgba(200, 169, 126, 0.1) 100%
+                ),
+                url(&quot;https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=600&fit=crop&quot;)
+                  center/cover;
+            "
+          ></div>
+          <div class="panel-overlay"></div>
+          <div class="panel-title" data-i18n="project2_title">Wesh.dz</div>
+          <div class="panel-content">
+            <div class="panel-num" data-i18n="project2_num">Projet 02</div>
+            <h3 class="panel-h3" data-i18n="project2_title">Wesh.dz</h3>
+            <a href="https://wesh.dz" target="_blank" class="panel-link"
+              >wesh.dz →</a
+            >
+            <p class="panel-desc" data-i18n="project2_desc">
+              Réseau social algérien avec fonctionnalités temps réel. Feed
+              personnalisé, notifications push SSE, messagerie WebSocket et
+              pipeline CDN de traitement médias.
+            </p>
+            <div class="panel-tags">
+              <span class="panel-tag">WebSocket</span>
+              <span class="panel-tag">SSE</span>
+              <span class="panel-tag">PHP</span>
+              <span class="panel-tag">CDN</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-panel">
+          <div
+            class="panel-bg"
+            style="
+              background:
+                linear-gradient(
+                  135deg,
+                  rgba(94, 173, 181, 0.3) 0%,
+                  rgba(94, 173, 181, 0.1) 100%
+                ),
+                url(&quot;https://images.unsplash.com/photo-1611746872915-64382b5c76da?w=800&h=600&fit=crop&quot;)
+                  center/cover;
+            "
+          ></div>
+          <div class="panel-overlay"></div>
+          <div class="panel-title" data-i18n="project3_panel_title">Bots Telegram</div>
+          <div class="panel-content">
+            <div class="panel-num" data-i18n="project3_num">Projet 03</div>
+            <h3 class="panel-h3" data-i18n="project3_h3">Bots & Veille Automatisée</h3>
+            <p class="panel-desc" data-i18n="project3_desc">
+              Écosystème de bots Telegram autonomes : veille tarifaire avec
+              scoring d'opportunités, monitoring logistique temps réel,
+              comparateur de vols par scraping intelligent.
+            </p>
+            <div class="panel-tags">
+              <span class="panel-tag">Python</span>
+              <span class="panel-tag">Telegram API</span>
+              <span class="panel-tag">Selenium</span>
+              <span class="panel-tag">Render</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-panel">
+          <div
+            class="panel-bg"
+            style="
+              background:
+                linear-gradient(
+                  135deg,
+                  rgba(168, 116, 142, 0.3) 0%,
+                  rgba(168, 116, 142, 0.1) 100%
+                ),
+                url(&quot;https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&h=600&fit=crop&quot;)
+                  center/cover;
+            "
+          ></div>
+          <div class="panel-overlay"></div>
+          <div class="panel-title" data-i18n="project4_title">TikTok Engine</div>
+          <div class="panel-content">
+            <div class="panel-num" data-i18n="project4_num">Projet 04</div>
+            <h3 class="panel-h3" data-i18n="project4_h3">TikTok Content Engine</h3>
+            <p class="panel-desc" data-i18n="project4_desc">
+              Compte TikTok entièrement automatisé. Pipeline IA : génération
+              procédurale → rendu FFmpeg → caption IA → publication automatique.
+              Optimisé pour viralité maximale.
+            </p>
+            <div class="panel-tags">
+              <span class="panel-tag">Python</span>
+              <span class="panel-tag">FFmpeg</span>
+              <span class="panel-tag">AI</span>
+              <span class="panel-tag">TikTok API</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-panel">
+          <div
+            class="panel-bg"
+            style="
+              background:
+                linear-gradient(
+                  135deg,
+                  rgba(79, 70, 229, 0.3) 0%,
+                  rgba(79, 70, 229, 0.1) 100%
+                ),
+                url(&quot;https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop&quot;)
+                  center/cover;
+            "
+          ></div>
+          <div class="panel-overlay"></div>
+          <div class="panel-title" data-i18n="project5_title">LLM Agents</div>
+          <div class="panel-content">
+            <div class="panel-num" data-i18n="project5_num">Projet 05</div>
+            <h3 class="panel-h3" data-i18n="project5_h3">LLM Engineering & Agents</h3>
+            <p class="panel-desc" data-i18n="project5_desc">
+              Pipelines RAG et agents multi-étapes avec mémoire persistante.
+              Intégration Claude/GPT pour automatisation métier, orchestration
+              n8n, déploiement LLMs locaux.
+            </p>
+            <div class="panel-tags">
+              <span class="panel-tag">Claude API</span>
+              <span class="panel-tag">RAG</span>
+              <span class="panel-tag">n8n</span>
+              <span class="panel-tag">Python</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section (Sticky Stack) -->
+    <section class="experience-section" id="experience">
+      <div class="section-header">
+        <div class="section-label" data-i18n="experience_label">Parcours</div>
+        <h2 class="section-title" data-i18n="experience_title">Expérience professionnelle</h2>
+      </div>
+
+      <div class="experience-container">
+        <div class="experience-visual">
+          <div class="timeline-visual">
+            <div class="timeline-state active" data-state="1">
+              <div class="timeline-year">2024</div>
+              <div class="timeline-role">Tech Lead</div>
+              <div class="timeline-org">Orange France</div>
+            </div>
+            <div class="timeline-state" data-state="2">
+              <div class="timeline-year">2022</div>
+              <div class="timeline-role">Senior Developer</div>
+              <div class="timeline-org">ENV France</div>
+            </div>
+            <div class="timeline-state" data-state="3">
+              <div class="timeline-year">2020</div>
+              <div class="timeline-role">Full Stack Dev</div>
+              <div class="timeline-org">Michelin</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-cards">
+          <div class="experience-card active" data-experience="1">
+            <div class="experience-num" data-i18n="exp1_num">Expérience 01</div>
+            <div class="experience-date" data-i18n="exp1_date">Sep 2024 — Présent</div>
+            <h3 class="experience-title" data-i18n="exp1_title">Tech Lead & Expert Full Stack</h3>
+            <div class="experience-company" data-i18n="exp1_company">Consort Group · Orange France</div>
+            <ul class="experience-details">
+              <li data-i18n="exp1_detail1">
+                Développement d'une bibliothèque d'abstraction multi-vendeurs
+                interfaçant 10+ fabricants d'équipements de télégestion (Huawei,
+                Delta, Eltek, Emerson…)
+              </li>
+              <li data-i18n="exp1_detail2">
+                Plateforme d'orchestration centralisée pilotant +40 000
+                équipements de télécommunications à l'échelle nationale
+              </li>
+              <li data-i18n="exp1_detail3">
+                Module IoT pour actions intelligentes à distance : contrôle
+                thermique, gestion électrique — stack EtherCAT + MQTT + IEC
+                61131-3
+              </li>
+              <li data-i18n="exp1_detail4">
+                Lead d'une équipe de 4 ingénieurs avec stratégie de tests
+                complète : unitaires, mutation, E2E Playwright
+              </li>
+            </ul>
+          </div>
+
+          <div class="experience-card" data-experience="2">
+            <div class="experience-num" data-i18n="exp2_num">Expérience 02</div>
+            <div class="experience-date" data-i18n="exp2_date">Sep 2022 — Août 2024</div>
+            <h3 class="experience-title" data-i18n="exp2_title">Développeur Full Stack Senior</h3>
+            <div class="experience-company" data-i18n="exp2_company">SQLi · ENV France</div>
+            <ul class="experience-details">
+              <li data-i18n="exp2_detail1">
+                Architecte et développeur principal de SIRIUS — SaaS national
+                déployé dans les 4 Écoles Nationales Vétérinaires de France
+              </li>
+              <li data-i18n="exp2_detail2">
+                Architecture microservices : 8 services métier indépendants avec
+                Spring Cloud Gateway, 3 frontends Angular segmentés par rôle
+              </li>
+              <li data-i18n="exp2_detail3">
+                Moteur de facturation (TVA, remises, avoirs), prescription
+                numérique conforme au droit vétérinaire français
+              </li>
+              <li data-i18n="exp2_detail4">
+                Infrastructure Kubernetes sur OVH : namespaces, ingress TLS,
+                health probes, HPA, CI/CD GitLab — MEP réussie
+              </li>
+            </ul>
+          </div>
+
+          <div class="experience-card" data-experience="3">
+            <div class="experience-num" data-i18n="exp3_num">Expérience 03</div>
+            <div class="experience-date" data-i18n="exp3_date">Sep 2020 — Août 2022</div>
+            <h3 class="experience-title" data-i18n="exp3_title">
+              Développeur Full Stack (Alternance)
+            </h3>
+            <div class="experience-company" data-i18n="exp3_company">
+              Capgemini Technology · Michelin
+            </div>
+            <ul class="experience-details">
+              <li data-i18n="exp3_detail1">
+                Projet IGX — refonte système de gestion financière stratégique :
+                réécriture VBA/Oracle vers Spring Boot / Angular / PostgreSQL
+              </li>
+              <li data-i18n="exp3_detail2">
+                Pipeline d'intégration événementielle (mission solo) : consumer
+                Kafka haute disponibilité, gestion offsets, dead-letter queues
+              </li>
+              <li data-i18n="exp3_detail3">
+                Développement et intégration de jobs Talend pour l'extraction et
+                transformation de données financières cross-systèmes
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section" id="skills">
+      <div class="section-header">
+        <div class="section-label" data-i18n="skills_label">Compétences</div>
+        <h2 class="section-title" data-i18n="skills_title">Stack technique</h2>
+      </div>
+
+      <div class="skills-grid" id="skillsGrid">
+        <div class="skill-card">
+          <div class="skill-category">Backend</div>
+          <div class="skill-items">
+            <span class="skill-item">Java</span>
+            <span class="skill-item">Spring Boot</span>
+            <span class="skill-item">Spring Cloud</span>
+            <span class="skill-item">Microservices</span>
+            <span class="skill-item">Event-Driven</span>
+            <span class="skill-item">REST / GraphQL</span>
+            <span class="skill-item">Node.js</span>
+            <span class="skill-item">Python</span>
+            <span class="skill-item">FastAPI</span>
+            <span class="skill-item">WebSocket</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-category">Frontend</div>
+          <div class="skill-items">
+            <span class="skill-item">Angular</span>
+            <span class="skill-item">React / Next.js</span>
+            <span class="skill-item">TypeScript</span>
+            <span class="skill-item">RxJS / NgRx</span>
+            <span class="skill-item">Tailwind CSS</span>
+            <span class="skill-item">Firebase</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-category">DevOps & Cloud</div>
+          <div class="skill-items">
+            <span class="skill-item">Kubernetes</span>
+            <span class="skill-item">Docker</span>
+            <span class="skill-item">GitLab CI/CD</span>
+            <span class="skill-item">GitHub Actions</span>
+            <span class="skill-item">ArgoCD</span>
+            <span class="skill-item">Terraform</span>
+            <span class="skill-item">AWS</span>
+            <span class="skill-item">OVH</span>
+            <span class="skill-item">Cloudflare</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-category">Data & Streaming</div>
+          <div class="skill-items">
+            <span class="skill-item">PostgreSQL</span>
+            <span class="skill-item">Kafka</span>
+            <span class="skill-item">Oracle</span>
+            <span class="skill-item">Redis</span>
+            <span class="skill-item">Elasticsearch</span>
+            <span class="skill-item">Talend</span>
+            <span class="skill-item">Supabase</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-category">Monitoring</div>
+          <div class="skill-items">
+            <span class="skill-item">ELK Stack</span>
+            <span class="skill-item">Prometheus</span>
+            <span class="skill-item">Grafana</span>
+            <span class="skill-item">OpenTelemetry</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-category">Cybersécurité</div>
+          <div class="skill-items">
+            <span class="skill-item">Penetration Testing</span>
+            <span class="skill-item">Bug Bounty</span>
+            <span class="skill-item">OWASP Top 10</span>
+            <span class="skill-item">OAuth2 / OIDC</span>
+            <span class="skill-item">Zero Trust</span>
+            <span class="skill-item">CVE Analysis</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-category">IA & LLM</div>
+          <div class="skill-items">
+            <span class="skill-item">LLM Agents</span>
+            <span class="skill-item">Claude / GPT APIs</span>
+            <span class="skill-item">RAG Pipelines</span>
+            <span class="skill-item">n8n / Make</span>
+            <span class="skill-item">Twilio</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-category">IoT & Protocoles</div>
+          <div class="skill-items">
+            <span class="skill-item">SNMP v1/v2c/v3</span>
+            <span class="skill-item">MQTT / AMQP</span>
+            <span class="skill-item">SSH</span>
+            <span class="skill-item">EtherCAT</span>
+            <span class="skill-item">IEC 61131-3</span>
+            <span class="skill-item">CODESYS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security Research Highlight -->
+    <div class="security-highlight">
+      <div class="tag" data-i18n="security_tag">Recherche en sécurité</div>
+      <h3 data-i18n="security_h3">BugBounty.ch — Chercheur indépendant</h3>
+      <p data-i18n="security_desc">
+        Deux vulnérabilités critiques identifiées sur des systèmes e-banking
+        suisses en production — contournement d'authentification et exposition
+        de données clients sensibles, avec impact estimé à plusieurs dizaines de
+        milliers de comptes. Périmètre soumis à réglementation FINMA.
+      </p>
+      <div class="security-stats">
+        <div class="security-stat">
+          <div class="security-stat-num" data-value="12" data-suffix="+"></div>
+          <div class="security-stat-label" data-i18n="security_stat1_label">Interventions</div>
+        </div>
+        <div class="security-stat">
+          <div class="security-stat-num" data-value="6"></div>
+          <div class="security-stat-label" data-i18n="security_stat2_label">Récompensées</div>
+        </div>
+        <div class="security-stat">
+          <div class="security-stat-num" data-value="15" data-suffix="k+"></div>
+          <div class="security-stat-label" data-i18n="security_stat3_label">CHF gagnés</div>
+        </div>
+        <div class="security-stat">
+          <div class="security-stat-num" data-value="2"></div>
+          <div class="security-stat-label" data-i18n="security_stat4_label">Critiques (CVSS 9+)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+      <div class="section-header">
+        <div class="section-label" data-i18n="testimonials_label">Témoignages</div>
+        <h2 class="section-title" data-i18n="testimonials_title">Ce qu'on dit de mon travail</h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <div
+          class="testimonial-card"
+          onclick="this.classList.toggle('flipped')"
+        >
+          <div class="testimonial-inner">
+            <div class="testimonial-front">
+              <img
+                src="https://robohash.org/laurent"
+                alt="Laurent Mercier"
+                class="testimonial-avatar"
+              />
+              <div class="testimonial-name">Laurent Mercier</div>
+              <div class="testimonial-role">Tech Lead @ Orange</div>
+              <div class="testimonial-text" data-i18n="testimonial1_text_front">
+                "Yacine a été un atout majeur sur notre projet de télégestion.
+                Sa maîtrise de Spring Boot et son approche architecturale ont
+                permis de livrer une solution robuste gérant +40k
+                équipements..."
+              </div>
+              <div class="flip-hint" data-i18n="flip_hint">Cliquer pour lire la suite →</div>
+            </div>
+            <div class="testimonial-back">
+              <div class="testimonial-name">Laurent Mercier</div>
+              <div class="testimonial-role">Tech Lead @ Orange</div>
+              <div class="testimonial-text" data-i18n="testimonial1_text_back">
+                Yacine a été un atout majeur sur notre projet de télégestion. Sa
+                maîtrise de Spring Boot et son approche architecturale ont
+                permis de livrer une solution robuste gérant +40k équipements.
+                Très professionnel.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="testimonial-card"
+          onclick="this.classList.toggle('flipped')"
+        >
+          <div class="testimonial-inner">
+            <div class="testimonial-front">
+              <img
+                src="https://robohash.org/sophie"
+                alt="Sophie Dubois"
+                class="testimonial-avatar"
+              />
+              <div class="testimonial-name">Sophie Dubois</div>
+              <div class="testimonial-role">Product Owner @ SQLi</div>
+              <div class="testimonial-text" data-i18n="testimonial2_text_front">
+                "L'architecture microservices de SIRIUS conçue par Yacine a
+                parfaitement répondu aux besoins des 4 ENV. Sa capacité à
+                traduire des exigences complexes en solutions techniques..."
+              </div>
+              <div class="flip-hint" data-i18n="flip_hint">Cliquer pour lire la suite →</div>
+            </div>
+            <div class="testimonial-back">
+              <div class="testimonial-name">Sophie Dubois</div>
+              <div class="testimonial-role">Product Owner @ SQLi</div>
+              <div class="testimonial-text" data-i18n="testimonial2_text_back">
+                L'architecture microservices de SIRIUS conçue par Yacine a
+                parfaitement répondu aux besoins des 4 ENV. Sa capacité à
+                traduire des exigences complexes en solutions techniques est
+                remarquable.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="testimonial-card"
+          onclick="this.classList.toggle('flipped')"
+        >
+          <div class="testimonial-inner">
+            <div class="testimonial-front">
+              <img
+                src="https://robohash.org/marc"
+                alt="Marc Fontaine"
+                class="testimonial-avatar"
+              />
+              <div class="testimonial-name">Marc Fontaine</div>
+              <div class="testimonial-role">Senior Developer</div>
+              <div class="testimonial-text" data-i18n="testimonial3_text_front">
+                "Collaborer avec Yacine sur le projet IGX chez Michelin était un
+                plaisir. Son expertise Kafka et sa rigueur sur les pipelines
+                événementiels ont vraiment fait la différence..."
+              </div>
+              <div class="flip-hint" data-i18n="flip_hint">Cliquer pour lire la suite →</div>
+            </div>
+            <div class="testimonial-back">
+              <div class="testimonial-name">Marc Fontaine</div>
+              <div class="testimonial-role">Senior Developer</div>
+              <div class="testimonial-text" data-i18n="testimonial3_text_back">
+                Collaborer avec Yacine sur le projet IGX chez Michelin était un
+                plaisir. Son expertise Kafka et sa rigueur sur les pipelines
+                événementiels ont vraiment fait la différence. Code propre, bien
+                testé.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section (Curtain Reveal) -->
+    <section class="contact-section-wrapper" id="contact">
+      <div class="contact-sticky">
+        <section class="contact-section">
+          <div class="contact-section-inner">
+            <h2 class="contact-title" data-i18n="contact_title">Prêt à collaborer ?</h2>
+            <p class="contact-subtitle" data-i18n="contact_subtitle">
+              Discutons de votre prochain projet. Je suis disponible pour des
+              missions freelance en remote.
+            </p>
+
+            <div class="contact-container">
+              <div class="contact-info">
+                <div class="contact-info-item">
+                  <div class="contact-info-icon">📧</div>
+                  <div class="contact-info-content">
+                    <div class="contact-info-label" data-i18n="contact_label_email">Email</div>
+                    <div class="contact-info-text">
+                      <a href="mailto:yacine.benakmoume@example.com"
+                        >yacine.benakmoume@example.com</a
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="contact-info-item">
+                  <div class="contact-info-icon">📱</div>
+                  <div class="contact-info-content">
+                    <div class="contact-info-label" data-i18n="contact_label_phone">Téléphone</div>
+                    <div class="contact-info-text">
+                      <a href="tel:+33626329071">+33 6 26 32 90 71</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="contact-info-item">
+                  <div class="contact-info-icon">📍</div>
+                  <div class="contact-info-content">
+                    <div class="contact-info-label" data-i18n="contact_label_location">Localisation</div>
+                    <div class="contact-info-text" data-i18n="contact_location_text">Toulouse, France</div>
+                  </div>
+                </div>
+
+                <div class="contact-info-item">
+                  <div class="contact-info-icon">🔗</div>
+                  <div class="contact-info-content">
+                    <div class="contact-info-label" data-i18n="contact_label_socials">Réseaux</div>
+                    <div class="contact-socials">
+                      <a
+                        href="https://www.linkedin.com/in/yacine-benakmoume/"
+                        target="_blank"
+                        class="contact-social-link"
+                        aria-label="LinkedIn"
+                        title="LinkedIn"
+                        >in</a
+                      >
+                      <a
+                        href="https://github.com/ElphenomenoCoding"
+                        target="_blank"
+                        class="contact-social-link"
+                        aria-label="GitHub"
+                        title="GitHub"
+                        >gh</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                  <label for="name" class="form-label" data-i18n="form_label_name">Nom complet</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="form-input"
+                    data-i18n-placeholder="form_placeholder_name"
+                    placeholder="Votre nom"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email" class="form-label" data-i18n="form_label_email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-input"
+                    data-i18n-placeholder="form_placeholder_email"
+                    placeholder="votre@email.com"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="subject" class="form-label" data-i18n="form_label_subject">Sujet</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    class="form-input"
+                    data-i18n-placeholder="form_placeholder_subject"
+                    placeholder="Objet de votre message"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="message" class="form-label" data-i18n="form_label_message">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    class="form-textarea"
+                    data-i18n-placeholder="form_placeholder_message"
+                    placeholder="Parlez-moi de votre projet..."
+                    required
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="form-submit" data-i18n="form_submit">
+                  Envoyer le message
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+        <div class="curtain-left" id="cLeft"><h2 data-i18n="curtain_left">LETS</h2></div>
+        <div class="curtain-right" id="cRight"><h2 data-i18n="curtain_right">WORK</h2></div>
+      </div>
+    </section>
+
+    <!-- Dock Navigation -->
+    <div class="dock-container">
+      <div class="dock" id="dock">
+        <a href="#home" class="dock-item" data-section="home">
+          <span class="tooltip" data-i18n="dock_home">Accueil</span>🏠
+        </a>
+        <a href="#projects" class="dock-item" data-section="projects">
+          <span class="tooltip" data-i18n="dock_projects">Projets</span>💼
+        </a>
+        <a href="#experience" class="dock-item" data-section="experience">
+          <span class="tooltip" data-i18n="dock_experience">Expérience</span>📈
+        </a>
+        <a href="#skills" class="dock-item" data-section="skills">
+          <span class="tooltip" data-i18n="dock_skills">Compétences</span>⚡
+        </a>
+        <a href="#testimonials" class="dock-item" data-section="testimonials">
+          <span class="tooltip" data-i18n="dock_testimonials">Témoignages</span>💬
+        </a>
+        <a href="#contact" class="dock-item" data-section="contact">
+          <span class="tooltip" data-i18n="dock_contact">Contact</span>✉️
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <h3 class="footer-title" data-i18n="footer_title">Travaillons ensemble</h3>
+        <div class="footer-contact">
+          <div class="footer-contact-item">
+            <a href="mailto:yacine.benakmoume@example.com"
+              >yacine.benakmoume@example.com</a
+            >
+          </div>
+          <div class="footer-contact-item">
+            <a href="tel:+33626329071">+33 6 26 32 90 71</a>
+          </div>
+          <div class="footer-contact-item">Toulouse, France</div>
+        </div>
+
+        <div class="footer-socials">
+          <a
+            href="https://www.linkedin.com/in/yacine-benakmoume/"
+            target="_blank"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+            >in</a
+          >
+          <a
+            href="https://github.com/ElphenomenoCoding"
+            target="_blank"
+            aria-label="GitHub"
+            title="GitHub"
+            >gh</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,118 @@
+{
+  "page_title": "Yacine Benakmoume — Senior Full Stack Engineer & Tech Lead",
+  "hero_label": "Portfolio",
+  "hero_title_typewriter": "Senior Full Stack Engineer & Tech Lead",
+  "hero_availability": "Available · Remote Freelance",
+  "hero_description": "Full stack software engineer with 6+ years of experience on high-stakes critical systems — national telecommunications, healthcare, industrial finance. Java/Spring Boot & Angular expert, microservices architect and cloud-native solutions, awarded offensive security researcher (BugBounty.ch).",
+  "hero_cta_contact": "Contact me",
+  "scroll_hint": "Scroll to discover ↓",
+
+  "projects_label": "Achievements",
+  "projects_title": "Key Projects",
+
+  "project1_title": "Tarjem DZ",
+  "project1_num": "Project 01",
+  "project1_desc": "SaaS platform connecting clients with certified translators. Complete order management workflow with automatic PDF certificate generation.",
+
+  "project2_title": "Wesh.dz",
+  "project2_num": "Project 02",
+  "project2_desc": "Algerian social network with real-time features. Personalized feed, SSE push notifications, WebSocket messaging and CDN media processing pipeline.",
+
+  "project3_title": "Telegram Bots",
+  "project3_panel_title": "Telegram Bots",
+  "project3_num": "Project 03",
+  "project3_h3": "Bots & Automated Monitoring",
+  "project3_desc": "Ecosystem of autonomous Telegram bots: price monitoring with opportunity scoring, real-time logistics tracking, intelligent flight comparison via smart scraping.",
+
+  "project4_title": "TikTok Engine",
+  "project4_num": "Project 04",
+  "project4_h3": "TikTok Content Engine",
+  "project4_desc": "Fully automated TikTok account. AI pipeline: procedural generation → FFmpeg rendering → AI captioning → automatic publishing. Optimized for maximum virality.",
+
+  "project5_title": "LLM Agents",
+  "project5_num": "Project 05",
+  "project5_h3": "LLM Engineering & Agents",
+  "project5_desc": "RAG pipelines and multi-step agents with persistent memory. Claude/GPT integration for business automation, n8n orchestration, local LLM deployment.",
+
+  "experience_label": "Career",
+  "experience_title": "Professional Experience",
+
+  "exp1_num": "Experience 01",
+  "exp1_date": "Sep 2024 — Present",
+  "exp1_title": "Tech Lead & Full Stack Expert",
+  "exp1_company": "Consort Group · Orange France",
+  "exp1_detail1": "Development of a multi-vendor abstraction library interfacing 10+ remote management equipment manufacturers (Huawei, Delta, Eltek, Emerson…)",
+  "exp1_detail2": "Centralized orchestration platform managing +40,000 telecommunications equipment at national scale",
+  "exp1_detail3": "IoT module for intelligent remote actions: thermal control, electrical management — EtherCAT + MQTT + IEC 61131-3 stack",
+  "exp1_detail4": "Leading a team of 4 engineers with comprehensive testing strategy: unit, mutation, E2E Playwright",
+
+  "exp2_num": "Experience 02",
+  "exp2_date": "Sep 2022 — Aug 2024",
+  "exp2_title": "Senior Full Stack Developer",
+  "exp2_company": "SQLi · ENV France",
+  "exp2_detail1": "Architect and lead developer of SIRIUS — national SaaS deployed across all 4 National Veterinary Schools of France",
+  "exp2_detail2": "Microservices architecture: 8 independent business services with Spring Cloud Gateway, 3 Angular frontends segmented by role",
+  "exp2_detail3": "Billing engine (VAT, discounts, credits), digital prescription compliant with French veterinary law",
+  "exp2_detail4": "Kubernetes infrastructure on OVH: namespaces, TLS ingress, health probes, HPA, GitLab CI/CD — successful production deployment",
+
+  "exp3_num": "Experience 03",
+  "exp3_date": "Sep 2020 — Aug 2022",
+  "exp3_title": "Full Stack Developer (Work-Study)",
+  "exp3_company": "Capgemini Technology · Michelin",
+  "exp3_detail1": "IGX Project — strategic financial management system overhaul: rewrite from VBA/Oracle to Spring Boot / Angular / PostgreSQL",
+  "exp3_detail2": "Event-driven integration pipeline (solo mission): high-availability Kafka consumer, offset management, dead-letter queues",
+  "exp3_detail3": "Development and integration of Talend jobs for cross-system financial data extraction and transformation",
+
+  "skills_label": "Skills",
+  "skills_title": "Tech Stack",
+
+  "security_tag": "Security Research",
+  "security_h3": "BugBounty.ch — Independent Researcher",
+  "security_desc": "Two critical vulnerabilities identified on production Swiss e-banking systems — authentication bypass and exposure of sensitive client data, with estimated impact on tens of thousands of accounts. Scope subject to FINMA regulation.",
+  "security_stat1_label": "Engagements",
+  "security_stat2_label": "Rewarded",
+  "security_stat3_label": "CHF earned",
+  "security_stat4_label": "Critical (CVSS 9+)",
+
+  "testimonials_label": "Testimonials",
+  "testimonials_title": "What people say about my work",
+
+  "testimonial1_text_front": "\"Yacine was a major asset on our remote management project. His mastery of Spring Boot and his architectural approach enabled us to deliver a robust solution managing +40k equipment...\"",
+  "testimonial1_text_back": "Yacine was a major asset on our remote management project. His mastery of Spring Boot and his architectural approach enabled us to deliver a robust solution managing +40k equipment. Very professional.",
+  "flip_hint": "Click to read more →",
+
+  "testimonial2_text_front": "\"The microservices architecture of SIRIUS designed by Yacine perfectly met the needs of all 4 ENV schools. His ability to translate complex requirements into technical solutions...\"",
+  "testimonial2_text_back": "The microservices architecture of SIRIUS designed by Yacine perfectly met the needs of all 4 ENV schools. His ability to translate complex requirements into technical solutions is remarkable.",
+
+  "testimonial3_text_front": "\"Collaborating with Yacine on the IGX project at Michelin was a pleasure. His Kafka expertise and rigor on event-driven pipelines truly made the difference...\"",
+  "testimonial3_text_back": "Collaborating with Yacine on the IGX project at Michelin was a pleasure. His Kafka expertise and rigor on event-driven pipelines truly made the difference. Clean, well-tested code.",
+
+  "contact_title": "Ready to collaborate?",
+  "contact_subtitle": "Let's discuss your next project. I'm available for remote freelance missions.",
+  "contact_label_email": "Email",
+  "contact_label_phone": "Phone",
+  "contact_label_location": "Location",
+  "contact_location_text": "Toulouse, France",
+  "contact_label_socials": "Socials",
+  "form_label_name": "Full name",
+  "form_placeholder_name": "Your name",
+  "form_label_email": "Email",
+  "form_placeholder_email": "your@email.com",
+  "form_label_subject": "Subject",
+  "form_placeholder_subject": "Subject of your message",
+  "form_label_message": "Message",
+  "form_placeholder_message": "Tell me about your project...",
+  "form_submit": "Send message",
+
+  "curtain_left": "LETS",
+  "curtain_right": "WORK",
+
+  "dock_home": "Home",
+  "dock_projects": "Projects",
+  "dock_experience": "Experience",
+  "dock_skills": "Skills",
+  "dock_testimonials": "Testimonials",
+  "dock_contact": "Contact",
+
+  "footer_title": "Let's work together"
+}
