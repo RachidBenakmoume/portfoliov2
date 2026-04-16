@@ -13,11 +13,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   </head>
   <body>
-    <!-- Top-right controls -->
-    <div class="site-controls">
-      <button class="control-btn" id="langToggle" aria-label="Switch language">FR</button>
-      <button class="control-btn" id="themeToggle" aria-label="Toggle theme">☀️</button>
-    </div>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+      <a href="#home" class="navbar-brand">Y<span>.</span>B</a>
+      <ul class="navbar-links" id="navLinks">
+        <li><a href="#home" data-section="home" data-i18n="dock_home" class="active">Accueil</a></li>
+        <li><a href="#projects" data-section="projects" data-i18n="dock_projects">Projets</a></li>
+        <li><a href="#experience" data-section="experience" data-i18n="dock_experience">Expérience</a></li>
+        <li><a href="#skills" data-section="skills" data-i18n="dock_skills">Compétences</a></li>
+        <li><a href="#testimonials" data-section="testimonials" data-i18n="dock_testimonials">Témoignages</a></li>
+        <li><a href="#contact" data-section="contact" data-i18n="dock_contact">Contact</a></li>
+      </ul>
+      <div class="navbar-controls">
+        <button class="control-btn" id="langToggle" aria-label="Switch language">FR</button>
+        <button class="control-btn" id="themeToggle" aria-label="Toggle theme">☀️</button>
+        <button class="navbar-hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -727,29 +741,6 @@
       </div>
     </section>
 
-    <!-- Dock Navigation -->
-    <div class="dock-container">
-      <div class="dock" id="dock">
-        <a href="#home" class="dock-item" data-section="home">
-          <span class="tooltip" data-i18n="dock_home">Accueil</span>🏠
-        </a>
-        <a href="#projects" class="dock-item" data-section="projects">
-          <span class="tooltip" data-i18n="dock_projects">Projets</span>💼
-        </a>
-        <a href="#experience" class="dock-item" data-section="experience">
-          <span class="tooltip" data-i18n="dock_experience">Expérience</span>📈
-        </a>
-        <a href="#skills" class="dock-item" data-section="skills">
-          <span class="tooltip" data-i18n="dock_skills">Compétences</span>⚡
-        </a>
-        <a href="#testimonials" class="dock-item" data-section="testimonials">
-          <span class="tooltip" data-i18n="dock_testimonials">Témoignages</span>💬
-        </a>
-        <a href="#contact" class="dock-item" data-section="contact">
-          <span class="tooltip" data-i18n="dock_contact">Contact</span>✉️
-        </a>
-      </div>
-    </div>
 
     <!-- Footer -->
     <footer>
