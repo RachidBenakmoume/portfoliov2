@@ -177,14 +177,81 @@ body {
 }
 
 .hero-availability {
-  display: inline-block;
-  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
   color: var(--accent);
   background: var(--accent-10);
   border: 1px solid var(--accent-20);
-  padding: 6px 16px;
+  padding: 10px 24px;
   border-radius: 100px;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+  animation: availabilityGlow 3s ease-in-out infinite;
+}
+
+.hero-availability::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent-15),
+    transparent
+  );
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { left: -100%; }
+  50% { left: 140%; }
+}
+
+@keyframes availabilityGlow {
+  0%, 100% {
+    box-shadow: 0 0 12px var(--accent-10), 0 0 0 0 var(--accent-10);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--accent-15), 0 0 40px var(--accent-10);
+  }
+}
+
+.availability-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.availability-dot::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.4;
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
 }
 
 /* Typewriter Effect */
@@ -1164,6 +1231,22 @@ footer {
 
 .form-submit:active {
   transform: translateY(0);
+}
+
+.form-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-submit--success {
+  background: #22c55e !important;
+  color: #fff !important;
+}
+
+.form-submit--error {
+  background: #ef4444 !important;
+  color: #fff !important;
 }
 
 /* ─── Top Navbar ─── */

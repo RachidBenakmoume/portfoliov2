@@ -606,6 +606,47 @@
     });
   }
 
+  // ─── EmailJS Contact Form ───
+  // TODO: Replace these with your actual EmailJS credentials
+  var EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+  var EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
+  var EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+
+  if (typeof emailjs !== "undefined") {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+  }
+
+  var contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var submitBtn = contactForm.querySelector(".form-submit");
+      var originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = currentLang === "fr" ? "Envoi en cours..." : "Sending...";
+
+      emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, contactForm)
+        .then(function () {
+          submitBtn.textContent = currentLang === "fr" ? "Message envoyé !" : "Message sent!";
+          submitBtn.classList.add("form-submit--success");
+          contactForm.reset();
+          setTimeout(function () {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            submitBtn.classList.remove("form-submit--success");
+          }, 3000);
+        }, function () {
+          submitBtn.textContent = currentLang === "fr" ? "Erreur, réessayez" : "Error, try again";
+          submitBtn.classList.add("form-submit--error");
+          setTimeout(function () {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            submitBtn.classList.remove("form-submit--error");
+          }, 3000);
+        });
+    });
+  }
+
   // ─── Init Controls ───
   setTheme(currentTheme);
   setLang(currentLang);
